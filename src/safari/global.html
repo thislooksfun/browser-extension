@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!-- This file is unfortunately needed to access Safari's settings -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Global Page</title>
+    <script type="text/javascript">
+      safari.application.addEventListener("message",function(evt){
+        if (evt.name !== "getSettings") return;
+        var s = safari.extension.settings;
+        var obj = {
+          overlay: s.overlay,
+          enterprise: s.enterprise || '',
+          debug: s.debug,
+          hosts: s.hosts || ''
+        };
+        evt.target.page.dispatchMessage("settings", obj);
+      },false);
+    </script>
+  </head>
+  <body></body>
+</html>

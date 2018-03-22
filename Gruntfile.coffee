@@ -58,7 +58,7 @@ module.exports = (grunt) ->
         files: [
           {expand: yes, flatten: yes, src: ['icons/*'], dest: 'tmp/safari/codecov.safariextension/icons', filter: 'isFile'}
           {expand: yes, flatten: yes, src: ['lib/jquery-2.1.3.min.js', 'lib/codecov.js', 'lib/codecov.css'], dest: 'tmp/safari/codecov.safariextension'}
-          {expand: yes, flatten: yes, src: ['src/safari/Info.plist', 'src/safari/Settings.plist'], dest: 'tmp/safari/codecov.safariextension'}
+          {expand: yes, flatten: yes, src: ['src/safari/global.html', 'src/safari/Info.plist', 'src/safari/Settings.plist'], dest: 'tmp/safari/codecov.safariextension'}
         ]
 
     concat:
