@@ -5,7 +5,7 @@
   <key>Author</key>
   <string>Steve Peak</string>
   <key>Builder Version</key>
-  <string>9537.75.14</string>
+  <string>12604.5.6.1.1</string>
   <key>CFBundleDisplayName</key>
   <string>codecov</string>
   <key>CFBundleIdentifier</key>
@@ -32,15 +32,17 @@
     <array>
       <string>codecov.css</string>
     </array>
-  <key>Whitelist</key>
-  <array>
-    <string>https://github.com/*</string>
-    <string>https://bitbucket.org/*</string>
-    <string>https://gitlab.com/*</string>
-  </array>
+    <key>Whitelist</key>
+    <array>
+      <string>https://github.com/*</string>
+      <string>https://bitbucket.org/*</string>
+      <string>https://gitlab.com/*</string>
+    </array>
   </dict>
   <key>Description</key>
   <string>Overlay Codecov coverage reports in Github, Bitbucket and Gitlab</string>
+  <key>DeveloperIdentifier</key>
+  <string>0000000000</string>
   <key>ExtensionInfoDictionaryVersion</key>
   <string>1.0</string>
   <key>Permissions</key>

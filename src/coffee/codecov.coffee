@@ -240,5 +240,5 @@ window.create_codecov_instance = (prefs, cb) ->
   else if $('meta[name="application-name"]').attr('content') in ['Bitbucket', 'Stash']
     new Bitbucket prefs, cb
 
-  else if 'GitLab' in $('meta[name="description"]').attr('content')
+  else if 'GitLab' in ($('meta[name="description"]').attr('content') or '')
     new Gitlab prefs, cb
