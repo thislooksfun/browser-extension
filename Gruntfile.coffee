@@ -39,21 +39,21 @@ module.exports = (grunt) ->
     clean: ['tmp', 'test/**/*.html']
 
     copy:
-      # chrome:
-      #   files: [
-      #     {expand: yes, flatten: yes, src: ['icons/*'], dest: 'tmp/chrome/icons/', filter: 'isFile'}
-      #     {expand: yes, flatten: yes, src: ['lib/*'], dest: 'tmp/chrome/lib'}
-      #     {expand: yes, flatten: yes, src: ['src/chrome/options.*'], dest: 'tmp/chrome/lib'}
-      #     {expand: yes, flatten: yes, src: ['src/chrome/listener.js'], dest: 'tmp/chrome/lib'}
-      #     {expand: yes, flatten: yes, src: ['src/chrome/manifest.json'], dest: './tmp/chrome/'}
-      #   ]
-      # firefox:
-      #   files: [
-      #     {expand: yes, flatten: yes, src: ['icons/*'], dest: 'tmp/firefox/data/icons/', filter: 'isFile'}
-      #     {expand: yes, flatten: yes, src: ['lib/jquery-2.1.3.min.js', 'lib/codecov.js', 'lib/codecov.css'], dest: 'tmp/firefox/data'}
-      #     {expand: yes, flatten: yes, src: ['src/firefox/index.js'], dest: 'tmp/firefox'}
-      #     {expand: yes, flatten: yes, src: ['src/firefox/package.json'], dest: './tmp/firefox/'}
-      #   ]
+      chrome:
+        files: [
+          {expand: yes, flatten: yes, src: ['icons/*'], dest: 'tmp/chrome/icons/', filter: 'isFile'}
+          {expand: yes, flatten: yes, src: ['lib/*'], dest: 'tmp/chrome/lib'}
+          {expand: yes, flatten: yes, src: ['src/chrome/options.*'], dest: 'tmp/chrome/lib'}
+          {expand: yes, flatten: yes, src: ['src/chrome/listener.js'], dest: 'tmp/chrome/lib'}
+          {expand: yes, flatten: yes, src: ['src/chrome/manifest.json'], dest: './tmp/chrome/'}
+        ]
+      firefox:
+        files: [
+          {expand: yes, flatten: yes, src: ['icons/*'], dest: 'tmp/firefox/data/icons/', filter: 'isFile'}
+          {expand: yes, flatten: yes, src: ['lib/jquery-2.1.3.min.js', 'lib/codecov.js', 'lib/codecov.css'], dest: 'tmp/firefox/data'}
+          {expand: yes, flatten: yes, src: ['src/firefox/index.js'], dest: 'tmp/firefox'}
+          {expand: yes, flatten: yes, src: ['src/firefox/package.json'], dest: './tmp/firefox/'}
+        ]
       safari:
         files: [
           {expand: yes, flatten: yes, src: ['icons/*'], dest: 'tmp/safari/codecov.safariextension/icons', filter: 'isFile'}
@@ -62,26 +62,26 @@ module.exports = (grunt) ->
         ]
 
     concat:
-      # chrome:
-      #   files: 'tmp/chrome/lib/codecov.js': ['src/chrome/chrome.js', 'tmp/chrome/lib/codecov.js']
-      # firefox:
-      #   files: 'tmp/firefox/data/codecov.js': ['src/firefox/firefox.js', 'tmp/firefox/data/codecov.js']
+      chrome:
+        files: 'tmp/chrome/lib/codecov.js': ['src/chrome/chrome.js', 'tmp/chrome/lib/codecov.js']
+      firefox:
+        files: 'tmp/firefox/data/codecov.js': ['src/firefox/firefox.js', 'tmp/firefox/data/codecov.js']
       safari:
         files: 'tmp/safari/codecov.safariextension/codecov.js': ['tmp/safari/codecov.safariextension/codecov.js', 'src/safari/safari.js']
 
     shell:
-      # chrome:
-      #   command: [
-      #     'cd tmp/chrome && zip -r ../../dist/chrome.zip .'
-      #     '"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --pack-extension="/Users/peak/Documents/codecov/browser-extension/tmp/chrome" --pack-extension-key="/Users/peak/.ssh/chrome.pem"'
-      #     'mv ../chrome.crx ../../dist/chrome.crx'
-      #     ].join(' && ')
-      # firefox:
-      #   command: [
-      #     'cd tmp/firefox'
-      #     '../../node_modules/jpm/bin/jpm xpi'
-      #     'mv hello@codecov.io-1.0.9.xpi ../../dist/firefox.xpi'
-      #     ].join(' && ')
+      chrome:
+        command: [
+          'cd tmp/chrome && zip -r ../../dist/chrome.zip .'
+          '"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --pack-extension="/Users/peak/Documents/codecov/browser-extension/tmp/chrome" --pack-extension-key="/Users/peak/.ssh/chrome.pem"'
+          'mv ../chrome.crx ../../dist/chrome.crx'
+          ].join(' && ')
+      firefox:
+        command: [
+          'cd tmp/firefox'
+          '../../node_modules/jpm/bin/jpm xpi'
+          'mv hello@codecov.io-1.0.9.xpi ../../dist/firefox.xpi'
+          ].join(' && ')
       opera:
         command: 'cp dist/chrome.crx dist/opera.nex'
 
